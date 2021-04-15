@@ -15,7 +15,7 @@ class CreatePesananTable extends Migration
     {
         Schema::create('pesanan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('tanngal', 45);
+            $table->string('tanggal', 45);
             $table->string('jumlah_harga', 45);
             $table->foreign('user_id')->references('id')->on('user');
             $table->unsignedBigInteger('user_id');

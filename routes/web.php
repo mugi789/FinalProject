@@ -16,3 +16,6 @@
 // });
 
 Route::resource('/', 'HomeController');
+Route::get('dasbor', 'DasborController@dasbor');
+Route::get('dasbor/post', 'DasborController@posting');
+Route::post('/dasbor', 'DasborController@post');

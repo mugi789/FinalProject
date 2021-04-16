@@ -15,7 +15,10 @@ Route::get('welcome', function () {
     return view('welcome');
 });
 
-Route::resource('/', 'HomeController');
+Route::resource('/', 'HomeUserController');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeUserController@index')->name('home');
+Route::get('dasbor', 'DasborController@dasbor');
+Route::get('dasbor/post', 'DasborController@posting');
+Route::post('/dasbor', 'DasborController@post');

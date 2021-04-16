@@ -20,7 +20,7 @@
       <!-- Responsive-->
       <link rel="stylesheet" href="{{asset('asset/css/responsive.css')}}">
       <!-- fevicon -->
-      <link rel="icon" href="{{asset('asset/images/fevicon.png')}}" type="image/gif" />
+      <link rel="icon" href="{{asset('asset/images/Logo Fav.png')}}" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="{{asset('asset/css/jquery.mCustomScrollbar.min.css')}}">
       <!-- Tweaks for older IEs-->

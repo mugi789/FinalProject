@@ -30,7 +30,7 @@
              </div>
           </div>
           <div class="header_box">
-             <div class="lang_box ">
+             {{-- <div class="lang_box ">
                 <a href="#" title="Language" class="nav-link" data-toggle="dropdown" aria-expanded="true">
                 <img src="{{asset('asset/images/flag-uk.png')}}" alt="flag" class="mr-2 " title="United Kingdom"> English <i class="fa fa-angle-down ml-2" aria-hidden="true"></i>
                 </a>
@@ -40,18 +40,58 @@
                    Indo
                    </a>
                 </div>
-             </div>
+             </div> --}}
              <div class="login_menu">
-                <ul>
+                {{-- <ul>
                    <li><a href="#">
                       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                       <span class="padding_10">Cart</span></a>
                    </li>
                    <li><a href="#">
-                      <i class="fa fa-user" aria-hidden="true"></i>
+                      <i class="fa fa-user dropdown-toogle" aria-hidden="true" data-toggle="dropdown"></i>
                       <span class="padding_10">Login</span></a>
+                      
+                     
+                     
                    </li>
-                </ul>
+
+                   
+                   
+
+                </ul> --}}
+
+                <ul class="navbar-nav ml-auto">
+                  <!-- Authentication Links -->
+                  @guest
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                      </li>
+                      @if (Route::has('register'))
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                          </li>
+                      @endif
+                  @else
+                      <li class="nav-item dropdown">
+                          <a id="navbarDropdown" class="nav-link dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="fa fa-user dropdown-toogle"> 
+                              {{ Auth::user()->name }} <span class="caret"></span>
+                          </a>
+
+                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item"  href="{{ route('logout') }}"
+                                 onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                                  {{ __('Logout') }}
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;" >
+                                  @csrf
+                              </form>
+                          </div>
+                      </li>
+                  @endguest
+              </ul>
+             
              </div>
           </div>
        </div>

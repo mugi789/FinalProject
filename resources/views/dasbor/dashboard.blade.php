@@ -71,7 +71,7 @@
         </div>
         {{-- belum dikasih nama --}}
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">My Profile</a>
         </div>
       </div>
 

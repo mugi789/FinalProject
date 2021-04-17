@@ -2,10 +2,11 @@
 @section('title', 'Admin Dashboard')
 @section('content')
 <div class="card-header">
-    <h3 class="card-title">Daftar Barang</h3>
-  </div>
-  <!-- /.card-header -->
-  <div class="card-body">
+  <h3 class="card-title">Daftar Barang</h3>
+</div>
+<!-- /.card-header -->
+<div class="card-body">
+    <a href="/dasbor/post" class="btn btn-primary mb-3" >Tambah Barang</a>
     <table class="table table-bordered">
       <thead>
         <tr class="text-center">
@@ -17,7 +18,7 @@
           <th>Aksi</th>
         </tr>
       </thead>
-      @foreach ($query as $key => $value)
+      @foreach ($barang as $key => $value)
       <tbody>
         <tr>
             <td class="text-center">{{ $key + 1 }}</td>

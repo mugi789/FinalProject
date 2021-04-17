@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Produk;
 
 class DasborController extends Controller
 {
@@ -17,35 +18,36 @@ class DasborController extends Controller
         return redirect('/dasbor');
     }
     public function dasbor(){
-        $query = DB::table('barang')->get();
-        return view('dasbor.show', compact('query'));
+        // $query = DB::table('barang')->get();
+        $barang = Produk::all();
+        return view('dasbor.show', compact('barang'));
     }
-    public function posting(){
+    public function index(){
         return view('dasbor.post');
     }
     public function edit($id){
-        $barang = DB::table('barang')->where('id', $id)->first();
+        $barang = Produk::all()->where('id', $id)->first();
         return view('dasbor.edit',['barang' => $barang]);
     }
-    public function update($id, Request $request)
-    {
-        $request->validate([
-            'nama' => 'required',
-            'harga' => 'required',
-            'stok' => 'required',
-            'keterangan' => 'required'
-        ]);
+    // public function update($id, Request $request)
+    // {
+    //     $request->validate([
+    //         'nama' => 'required',
+    //         'harga' => 'required',
+    //         'stok' => 'required',
+    //         'keterangan' => 'required'
+    //     ]);
 
-        $query = DB::table('barang')
-            ->where('id', $id)
-            ->update([
-                'nama' => $request["nama"],
-                'harga' => $request["harga"],
-                'stok' => $request["stok"],
-                'keterangan' => $request["keterangan"]
-            ]);
-        return redirect('/dasbor');
-    }
+    //     $query = Produk::all()
+    //         ->where('id', $id)
+    //         ->update([
+    //             'nama' => $request["nama"],
+    //             'harga' => $request["harga"],
+    //             'stok' => $request["stok"],
+    //             'keterangan' => $request["keterangan"]
+    //         ]);
+    //     return redirect('/dasbor');
+    // }
     public function destroy($id) 
     {
     // menghapus data books berdasarkan id yang dipilih

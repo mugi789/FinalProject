@@ -11,7 +11,7 @@ Toko Online Hoodie
 ## Anggota
 
 Muhammad Sholehhudin (@msholehhudin)<br>
-wisnu ardiansyah (@Wisnu Ardiansyah)<br>
+Wisnu Ardiansyah (@Wisnu Ardiansyah)<br>
 Mugi Fadilah (@mgfdlh)
 
 ## Demo Web

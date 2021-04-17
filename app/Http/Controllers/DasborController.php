@@ -32,20 +32,18 @@ class DasborController extends Controller
     public function update($id, Request $request)
     {
         $request->validate([
-            'nama' => 'required',
+            'nama' => 'required|unique:barang',
             'harga' => 'required',
             'stok' => 'required',
             'keterangan' => 'required'
         ]);
 
-        $query = Produk::all()
-            ->where('id', $id)
-            ->update([
-                'nama' => $request["nama"],
-                'harga' => $request["harga"],
-                'stok' => $request["stok"],
-                'keterangan' => $request["keterangan"]
-            ]);
+        $post = Produk::find($id);
+        $post->nama = $request->nama;
+        $post->harga = $request->harga;
+        $post->stok = $request->stok;
+        $post->keterangan = $request->keterangan;
+        $post->update();
         return redirect('/dasbor');
     }
     public function destroy($id) 

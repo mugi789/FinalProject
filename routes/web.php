@@ -11,8 +11,18 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('welcome', function () {
+    return view('welcome');
+});
 
 Route::resource('/', 'HomeController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('dasbor', 'DasborController@dasbor');
+Route::get('dasbor/post', 'DasborController@posting');
+Route::post('/dasbor', 'DasborController@post');
+Route::get('/dasbor/{id}', 'DasborController@destroy');
+Route::get('/dasbor/edit/{id}','DasborController@edit');
+Route::put('/dasbor/update/{id}','DasborController@update');
+Route::get('/dasbor/destroy/{id}', 'DasborController@destroy');

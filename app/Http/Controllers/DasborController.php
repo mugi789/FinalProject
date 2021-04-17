@@ -29,25 +29,25 @@ class DasborController extends Controller
         $barang = Produk::all()->where('id', $id)->first();
         return view('dasbor.edit',['barang' => $barang]);
     }
-    // public function update($id, Request $request)
-    // {
-    //     $request->validate([
-    //         'nama' => 'required',
-    //         'harga' => 'required',
-    //         'stok' => 'required',
-    //         'keterangan' => 'required'
-    //     ]);
+    public function update($id, Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'harga' => 'required',
+            'stok' => 'required',
+            'keterangan' => 'required'
+        ]);
 
-    //     $query = Produk::all()
-    //         ->where('id', $id)
-    //         ->update([
-    //             'nama' => $request["nama"],
-    //             'harga' => $request["harga"],
-    //             'stok' => $request["stok"],
-    //             'keterangan' => $request["keterangan"]
-    //         ]);
-    //     return redirect('/dasbor');
-    // }
+        $query = Produk::all()
+            ->where('id', $id)
+            ->update([
+                'nama' => $request["nama"],
+                'harga' => $request["harga"],
+                'stok' => $request["stok"],
+                'keterangan' => $request["keterangan"]
+            ]);
+        return redirect('/dasbor');
+    }
     public function destroy($id) 
     {
     // menghapus data books berdasarkan id yang dipilih

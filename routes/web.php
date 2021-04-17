@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('produk', 'DasborController');
 Route::get('dasbor', 'DasborController@dasbor');
-Route::get('dasbor/post', 'DasborController@posting');
+Route::get('dasbor/post', 'DasborController@index');
 Route::post('/dasbor', 'DasborController@post');
 Route::get('/dasbor/{id}', 'DasborController@destroy');
 Route::get('/dasbor/edit/{id}','DasborController@edit');
